@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mehul Chaudhary - UX Researcher</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      /* Default light theme background, will be overridden by JS */
+      background-color: #F8F9FA; 
+      /* Subtle noise texture using SVG for better glassmorphism depth - works for both themes */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%2390A4AE' fill-opacity='0.03' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+      /* Default light theme text color, will be overridden by JS */
+      color: #212529; 
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    /* Custom scrollbar for webkit browsers - more neutral */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(128,128,128,0.15); /* Semi-transparent light gray track */
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(128,128,128,0.5); /* Medium gray thumb */
+      border-radius: 5px;
+      border: 2px solid transparent;
+      background-clip: content-box;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(128,128,128,0.7); /* Darker medium gray thumb on hover */
+    }
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+     /* Selection style - uses CSS variables set by JS */
+    ::selection {
+      background-color: var(--selection-bg, #78909C); /* Default Blue Grey 400 */
+      color: var(--selection-text, #FFFFFF);
+    }
+    ::-moz-selection {
+      background-color: var(--selection-bg, #78909C);
+      color: var(--selection-text, #FFFFFF);
+    }
+
+    /* Tickertape Animation */
+    @keyframes tickerAnimation {
+      0% {
+        transform: translate3d(-50%, 0, 0);
+      }
+      100% {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    .animate-ticker {
+      display: flex;
+      align-items: center;
+      animation: tickerAnimation 13.33s linear infinite;
+      will-change: transform;
+    }
+
+    .ticker-wrapper:hover .animate-ticker,
+    .ticker-wrapper:focus-within .animate-ticker { /* Added :focus-within rule */
+      animation-play-state: paused;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .animate-ticker {
+        animation: none;
+      }
+    }
+
+    /* Redaction Block Style */
+    .redaction-block {
+      background-color: #1a1a1a; /* Very dark grey, almost black */
+      color: #1a1a1a; /* Same as background to hide text */
+      padding: 0.05em 0.1em; /* Minimal padding */
+      border-radius: 2px;
+      user-select: none; /* Prevent selecting the hidden text */
+      display: inline-block; /* Helps with consistent height and spacing */
+      line-height: 1.2; /* Adjust based on font for better visual alignment */
+      vertical-align: baseline; /* Align with surrounding text */
+      /* Add a subtle visual texture if desired, e.g. a very faint noise pattern */
+    }
+  </style>
+<link rel="stylesheet" href="/index.css">
+  <script type="module" crossorigin src="/assets/index-S6Wa1L1r.js"></script>
+</head>
+<body class="antialiased">
+  <div id="root"></div>
+</body>
+</html>
